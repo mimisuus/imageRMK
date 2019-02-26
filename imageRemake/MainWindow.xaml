@@ -1,0 +1,33 @@
+﻿<Window x:Class="imageRemake.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:imageRemake"
+        mc:Ignorable="d"
+        Title="imgRMK" Height="450" Width="478">
+    <Grid Margin="0,0,2,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="223*"/>
+            <RowDefinition Height="196*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="72*"/>
+            <ColumnDefinition Width="23*"/>
+        </Grid.ColumnDefinitions>
+        <Button x:Name="openImg" Content="Open Image" HorizontalAlignment="Left" Margin="10,51,0,0" VerticalAlignment="Top" Width="144" Height="59" FontSize="20" Click="openImg_Click" Grid.ColumnSpan="2"/>
+        <Image x:Name="imgPreview" HorizontalAlignment="Center" Height="270" VerticalAlignment="Center" Width="253" Margin="175,51,21,98" Grid.Column="1" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
+        <Button Content="Convert" HorizontalAlignment="Left" VerticalAlignment="Top" Width="96" Margin="20,107,0,0" Height="52" Click="Button_Click" Grid.Row="1" Grid.ColumnSpan="2"/>
+        <Slider x:Name="qualitySlider" Maximum="95" TickPlacement="BottomRight" Value="95" TickFrequency="5" HorizontalAlignment="Left" VerticalAlignment="Top" Height="49" Width="106" Margin="20,41,0,0" ValueChanged="qualitySlider_ValueChanged" Grid.Row="1" Grid.ColumnSpan="2"/>
+        <TextBlock x:Name="qualityRestriction" HorizontalAlignment="Left" Height="26" Margin="10,10,0,0" TextWrapping="Wrap" Text="Quality (For JPEG output)" VerticalAlignment="Top" Width="148" Grid.Row="1" Grid.ColumnSpan="2"/>
+        <TextBlock x:Name="rdyNotification" Grid.ColumnSpan="2" Grid.Column="1" HorizontalAlignment="Left" Height="68" Margin="161,118,0,0" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="278" FontSize="16"/>
+        <StackPanel Grid.Column="1" Margin="0,160,234,10">
+            <RadioButton x:Name="jpegButton" Content="JPEG" GroupName="filetype" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" IsChecked="true" Checked="jpegButton_Checked"/>
+            <RadioButton x:Name="pngButton" Content="PNG" GroupName="filetype" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Checked="pngButton_Checked"/>
+            <RadioButton x:Name="bmpButton" Content="BMP" GroupName="filetype" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Checked="bmpButton_Checked"/>
+        </StackPanel>
+        <TextBlock Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="26" Margin="10,129,0,0" TextWrapping="Wrap" Text="Output format" VerticalAlignment="Top" Width="116"/>
+        <TextBlock x:Name="fileSizeDisplay" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="161,95,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="201" Grid.ColumnSpan="2" Grid.Row="1"/>
+    </Grid>
+</Window>
